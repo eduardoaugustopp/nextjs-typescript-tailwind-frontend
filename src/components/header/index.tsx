@@ -52,7 +52,7 @@ export default function Header() {
 
 
           <img
-            src="/imagens/Header/logo.png"
+            src="/imagens/header/logo.png"
             alt="Logo"
             className="h-16 mx-auto block sm:w-auto"
           />
