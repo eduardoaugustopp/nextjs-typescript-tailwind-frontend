@@ -49,8 +49,6 @@ export default function Header() {
               ☰
             </button>
           </div>
-
-
           <img
             src="/imagens/header/logo.png"
             alt="Logo"
