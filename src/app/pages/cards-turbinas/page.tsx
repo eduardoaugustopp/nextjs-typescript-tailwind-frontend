@@ -18,7 +18,7 @@ const CardsTurbinas: React.FC = () => {
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const res = await fetch("/api/turbinas");
+      const res = await fetch("/api/pecas?type=turbinas"); 
       const data = await res.json();
       setCategories(data);
     };

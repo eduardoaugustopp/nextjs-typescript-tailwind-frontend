@@ -10,12 +10,12 @@ export default function Header() {
   const categories = [
     { name: "PÁGINA INICIAL", link: "/" },
     { name: "TURBINAS", link: "/pages/cards-turbinas"},
-    { name: "FILTROS", link: "#" },
-    { name: "VELAS", link: "#" },
-    { name: "AMORTECEDORES", link: "#" },
-    { name: "MOLAS", link: "#" },
-    { name: "PIVÔ", link: "#" },
-    { name: "BIELETAS", link: "#" },
+    { name: "FILTROS", link: "/pages/cards-filtros" },
+    { name: "VELAS", link: "/pages/cards-velas" },
+    { name: "AMORTECEDORES", link: "/pages/cards-amortecedores" },
+    { name: "MOLAS", link: "/pages/cards-molas" },
+    { name: "PIVÔS", link: "/pages/cards-pivos" },
+    { name: "BIELETAS", link: "/pages/cards-bieletas" },
   ];
   
 

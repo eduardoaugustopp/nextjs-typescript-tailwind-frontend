@@ -17,7 +17,7 @@ const Turbinas: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    fetch("/api/turbinas")
+    fetch("/api/pecas?type=turbinas")
       .then((response) => response.json())
       .then((data: Category[]) => setCategories(data.slice(0, 8)))
       .catch((error) => console.error("Erro ao carregar categorias:", error));

@@ -13,11 +13,11 @@ interface Category {
   installment: string;
 }
 
-const Filtros: React.FC = () => {
+const Molas: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    fetch("/api/pecas?type=filtros")
+    fetch("/api/pecas?type=molas")
       .then((response) => response.json())
       .then((data: Category[]) => setCategories(data.slice(0, 8)))
       .catch((error) => console.error("Erro ao carregar categorias:", error));
@@ -26,7 +26,7 @@ const Filtros: React.FC = () => {
   return (
     <div className="text-center p-10 bg-black pb-20">
       <h1 className="text-white text-xl font-light mb-20">
-        FILTROS
+        MOLAS
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -54,14 +54,8 @@ const Filtros: React.FC = () => {
           </Link>
         ))}
       </div>
-      <Link
-        href="/pages/cards-filtros"
-        className="inline-block bg-blue-800 text-white font-semibold py-2 px-6 mt-10 border-blue-800 border hover:bg-black hover:text-blue-800 hover:border-blue-800 transition-all duration-300"
-      >
-        VER MAIS
-      </Link>
     </div>
   );
 };
 
-export default Filtros;
+export default Molas;

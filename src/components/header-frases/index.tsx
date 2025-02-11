@@ -9,7 +9,7 @@ const HeaderFrases: React.FC = () => {
     'VELAS',
     'AMORTECEDORES',
     'MOLAS',
-    'PIVÔ',
+    'PIVÔS',
     'BIELETAS',
   ];
 

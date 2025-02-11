@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 interface Category {
@@ -11,29 +13,34 @@ interface Category {
   installment: string;
 }
 
-const categories: Category[] = [
-  {
-    name: "TURBINA 50/70 PULSATIVA",
-    link: "",
-    image: "/imagens/cards-home-turbinas/turbinas-50-70.png",
-    description: "TURBINA 50/70 PULSATIVA",
-    promotionalPrice: "R$ 2.310,18",
-    normalPrice: "R$ 2.431,77",
-    installment: "12x de R$ 229,81",
-  },
-  {
-    name: "FILTRO DE AR ESPORTIVO",
-    link: "",
-    image: "/imagens/cards-home-filtros/filtro-de-ar-esportivo-duplo-fluxo.png",
-    description: "FILTRO DE AR ESPORTIVO",
-    promotionalPrice: "R$ 299,90",
-    normalPrice: "R$ 310,90",
-    installment: "5x de R$ 59,98",
-  }
-];
-
-
 const MaisVendidos: React.FC = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    
+    const fetchCategories = async () => {
+      try {
+        
+        const filtersResponse = await fetch('/api/pecas?type=filtros');
+        const filtersData = await filtersResponse.json();
+        const turbinesResponse = await fetch('/api/pecas?type=turbinas');
+        const turbinesData = await turbinesResponse.json();
+
+       
+        const combinedCategories = [
+          filtersData[0],
+          turbinesData[0],
+        ];
+
+        setCategories(combinedCategories); 
+      } catch (error) {
+        console.error('Erro ao buscar categorias:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <div className="text-center p-10 bg-black pb-20">
       <h1 className="text-white text-xl font-light mb-20">MAIS VENDIDOS</h1>

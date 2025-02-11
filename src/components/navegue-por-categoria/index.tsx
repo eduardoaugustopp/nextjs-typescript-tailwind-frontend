@@ -4,12 +4,12 @@ import React, { useState } from "react";
 
 const categories = [
   { name: "Turbinas", link: "/pages/cards-turbinas" },
-  { name: "Filtros", link: "" },
-  { name: "Velas", link: "" },
-  { name: "Amortecedores", link: "#" },
-  { name: "Molas", link: "#" },
-  { name: "Pivô", link: "#" },
-  { name: "Bieletas", link: "#" },
+  { name: "Filtros", link: "/pages/cards-filtros" },
+  { name: "Velas", link: "/pages/cards-velas" },
+  { name: "Amortecedores", link: "/pages/cards-amortecedores" },
+  { name: "Molas", link: "/pages/cards-molas" },
+  { name: "Pivôs", link: "/pages/cards-pivos" },
+  { name: "Bieletas", link: "/pages/cards-bieletas" },
 ];
 
 const categoryImages: Record<string, string> = {
@@ -18,7 +18,7 @@ const categoryImages: Record<string, string> = {
   Velas: "/imagens/navegue-por-categoria/velas.png",
   Amortecedores: "/imagens/navegue-por-categoria/amortecedores.png",
   Molas: "/imagens/navegue-por-categoria/molas.png",
-  Pivô: "/imagens/navegue-por-categoria/pivo.png",
+  Pivôs: "/imagens/navegue-por-categoria/pivos.png",
   Bieletas: "/imagens/navegue-por-categoria/bieletas.png",
 };
 

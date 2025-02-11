@@ -13,14 +13,17 @@ interface Category {
   installment: string;
 }
 
-const Filtros: React.FC = () => {
+const CardsFiltros: React.FC = () => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    fetch("/api/pecas?type=filtros")
-      .then((response) => response.json())
-      .then((data: Category[]) => setCategories(data.slice(0, 8)))
-      .catch((error) => console.error("Erro ao carregar categorias:", error));
+    const fetchCategories = async () => {
+      const res = await fetch("/api/pecas?type=filtros"); 
+      const data = await res.json();
+      setCategories(data);
+    };
+
+    fetchCategories();
   }, []);
 
   return (
@@ -33,35 +36,24 @@ const Filtros: React.FC = () => {
         {categories.map((category) => (
           <Link
             key={category.name}
-            href={category.link || "/default-link"}
+            href={`/cards-filtros-por-peca/${category.link}`}
             className="block bg-black rounded-lg shadow-md overflow-hidden transition-all transform hover:scale-105 hover:shadow-xl hover:bg-gray-800"
           >
             <img
-              src={category.image}
+              src={category.image} 
               alt={category.name}
               className="w-full h-48 object-cover transition-opacity duration-300 ease-in-out hover:opacity-80"
             />
-            <p className="my-2 text-white text-sm">{category.description}</p>
-            <div className="my-2 text-white text-sm">
-              <span className="text-lg font-medium">
-                {category.promotionalPrice}
-              </span>
-              <span className="line-through text-gray-400 mx-2">
-                {category.normalPrice}
-              </span>
-              <span>{category.installment}</span>
+            <div className="text-white mt-4">
+              <p className="text-sm">{category.description}</p>
+              <p className="text-lg font-bold">{category.promotionalPrice}</p>
+              <p className="text-xs text-gray-400">{category.installment}</p>
             </div>
           </Link>
         ))}
       </div>
-      <Link
-        href="/pages/cards-filtros"
-        className="inline-block bg-blue-800 text-white font-semibold py-2 px-6 mt-10 border-blue-800 border hover:bg-black hover:text-blue-800 hover:border-blue-800 transition-all duration-300"
-      >
-        VER MAIS
-      </Link>
     </div>
   );
 };
 
-export default Filtros;
+export default CardsFiltros;
